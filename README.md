@@ -26,7 +26,7 @@ Some of the MCP servers require extra data like paths or API tokens. Those you n
         }
 ```
 
-### Docker
+### Docker (optional)
 ```json
         "mcp-server-docker": {
             "command": "uvx",
@@ -47,6 +47,18 @@ Download and unpack from https://github.com/grafana/mcp-grafana/releases, provid
                 "GRAFANA_API_KEY": "SERVICE_ACCOUNT_TOKEN"
             }
         }
+```
+
+### Postgres
+```json
+{
+    "command": "npx",
+    "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://USERNAME:PASSWORD@localhost:5432/DB_NAME"
+    ]
+}
 ```
 
 ### Slack
@@ -103,28 +115,77 @@ MCPs - git, slack
 Checkout branch app
 ```
 1. 
-MCPs - docker, time
+MCPs - docker (optional), time
 ```
-I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in fastapi. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. 
+I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in fastapi. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
 ```
-2.
+2. 
 ```
-Add filters to the page with talks
+/e2e-test go to http://localhost:3000 and check that all buttons in the header work and redirect to the correct pages
 ```
 3.
 ```
+Add filters to the page with talks
+```
+4.
+```
 Add monitoring for the backend api using grafana and prometheus
 ```
-4. 
-MCPs - grafana
+5. 
+MCPs - grafana and/or postgresql
 ```
 How many requests does the app have in grafana?
 ```
-5.
+```
+Get all talks from postgres where speaker is {NAME}
+```
+6.
 ```
 Let's now prepare deployment yaml that will allow us to deploy this app to kubernetes
 ```
-6. 
+7. 
+MCPs - github
+```
+Commit and push changes, create a pull request
+```
+
+### Javascript
+0.
+Create repository on github, clone locally, open in IDE
+MCPs - git, slack
+```
+Checkout branch app
+```
+1. 
+MCPs - docker (optional), time
+```
+I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in nodejs. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
+```
+2. 
+```
+/e2e-test go to http://localhost:3000 and check that all buttons in the header work and redirect to the correct pages
+```
+3.
+```
+Add filters to the page with talks
+```
+4.
+```
+Add monitoring for the backend api using grafana and prometheus
+```
+5. 
+MCPs - grafana and/or postgres
+```
+How many requests does the app have in grafana?
+```
+```
+Get all talks from postgres where speaker is {NAME}
+```
+6.
+```
+Let's now prepare deployment yaml that will allow us to deploy this app to kubernetes
+```
+7. 
 MCPs - github
 ```
 Commit and push changes, create a pull request
