@@ -4,7 +4,7 @@ Some scaffolding and prerequisites for the talk on developing apps using Zencode
 ## Prerequisites
 * Install VSCode or JetBrains IDE
 * Install [Zencoder](https://zencoder.ai)
-* Install docker
+* Install [docker](https://docs.docker.com/engine/install/)
 * Install [uvx](https://docs.astral.sh/uv/getting-started/installation/) and [npx](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 Some of the MCP servers require extra data like paths or API tokens. Those you need to update in relevant section of the mcp config
