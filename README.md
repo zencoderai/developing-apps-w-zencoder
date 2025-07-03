@@ -12,41 +12,41 @@ Some of the MCP servers require extra data like paths or API tokens. Those you n
 ## MCP Servers
 ### Time
 ```json
-        "time": {
-            "command": "npx",
-            "args": ["-y", "time-mcp"]
-        }
+{
+    "command": "npx",
+    "args": ["-y", "time-mcp"]
+}
  ```
 
 ### Git
 ```json
-        "git": {
-            "command": "uvx",
-            "args": ["mcp-server-git", "--repository", "/ABSOLUTE/PATH/TO/GIT/REPO"]
-        }
+{
+    "command": "uvx",
+    "args": ["mcp-server-git", "--repository", "/ABSOLUTE/PATH/TO/GIT/REPO"]
+}
 ```
 
 ### Docker (optional)
 ```json
-        "mcp-server-docker": {
-            "command": "uvx",
-            "args": [
-                "mcp-server-docker"
-            ]
-        }
+{
+    "command": "uvx",
+    "args": [
+        "mcp-server-docker"
+    ]
+}
 ```
 
 ### Grafana
 Download and unpack from https://github.com/grafana/mcp-grafana/releases, provide absolute path to mcp-grafana binary. Update GRAFANA_URL and GRAFANA_API_KEY as needed.
 ```json
-        "grafana": {
-            "command": "/PATH/TO/mcp-grafana",
-            "args": [],
-            "env": {
-                "GRAFANA_URL": "http://localhost:3001",
-                "GRAFANA_API_KEY": "SERVICE_ACCOUNT_TOKEN"
-            }
-        }
+{
+    "command": "/PATH/TO/mcp-grafana",
+    "args": [],
+    "env": {
+        "GRAFANA_URL": "http://localhost:3001",
+        "GRAFANA_API_KEY": "SERVICE_ACCOUNT_TOKEN"
+    }
+}
 ```
 
 ### Postgres
@@ -68,19 +68,29 @@ More instructions here: https://github.com/modelcontextprotocol/servers/tree/mai
 SLACK_BOT_TOKEN=YOUR_TOKEN
 SLACK_TEAM_ID=YOUR_TEAM_ID
 ```
-MCP config:
+Local MCP config:
 ```json
-        "slack": {
-            "command": "docker",
-            "args": [
-                "run",
-                "-i",
-                "--rm",
-                "--env-file",
-                "/PATH/TO/.env.slack",
-                "mcp/slack"
-            ]
-        }
+{
+    "command": "docker",
+    "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--env-file",
+        "/PATH/TO/.env.slack",
+        "mcp/slack"
+    ]
+}
+```
+Remote MCP config:
+```json
+{
+    "type": "http",
+    "url": "https://slack-community.mcps.zencoder.ai/mcp",
+    "headers": {
+        "Authorization": "Bearer TOKEN"
+    }
+}
 ```
 
 ### Github
@@ -91,17 +101,17 @@ GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT
 
 MCP config:
 ```json
-        "github": {
-            "command": "docker",
-            "args": [
-                "run",
-                "-i",
-                "--rm",
-                "--env-file",
-                "/PATH/TO/.env.github",
-                "ghcr.io/github/github-mcp-server"
-            ]
-        }
+{
+    "command": "docker",
+    "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--env-file",
+        "/PATH/TO/.env.github",
+        "ghcr.io/github/github-mcp-server"
+    ]
+}
 ```
 
 
