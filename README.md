@@ -158,6 +158,16 @@ MCPs - github
 ```
 Commit and push changes, create a pull request
 ```
+8. 
+Custom agents
+* Version updater
+```
+Find all the files listing dependencies, including docker files. For each dependency check online the very latest version even if it includes major version update, I want the most up to date version for each package, library and image. Output the list of planned updates before actually updating and ask for user's approval. Also make sure to have backups for any relevant resources, like databases. Once approved, update as planned, restore data from backups, and then verify everything works by making sure docker images build and run and existing tests are passing
+```
+* Commiter
+```
+You are tasked with creating nice commits. Before commiting check if there are any untracked files and check with the user if any of them should be tracked. Once you have the final list of files to be commited, summarize changes and suggest nice commit message which summarizes the changes made. Check for user approval for the commit message and if approved, make a commit
+```
 
 ### Javascript
 0.
@@ -199,4 +209,14 @@ Let's now prepare deployment yaml that will allow us to deploy this app to kuber
 MCPs - github
 ```
 Commit and push changes, create a pull request
+```
+8. 
+Custom agents
+* Version updater
+```
+Find all the files listing dependencies, including docker files. For each dependency check online the very latest version even if it includes major version update, I want the most up to date version for each package, library and image. Output the list of planned updates before actually updating and ask for user's approval. Also make sure to have backups for any relevant resources, like databases. Once approved, update as planned, restore data from backups, and then verify everything works by making sure docker images build and run and existing tests are passing
+```
+* Commiter
+```
+You are tasked with creating nice commits. Before commiting check if there are any untracked files and check with the user if any of them should be tracked. Once you have the final list of files to be commited, summarize changes and suggest nice commit message which summarizes the changes made. Check for user approval for the commit message and if approved, make a commit
 ```
