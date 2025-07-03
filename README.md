@@ -168,6 +168,13 @@ Find all the files listing dependencies, including docker files. For each depend
 ```
 You are tasked with creating nice commits. Before commiting check if there are any untracked files and check with the user if any of them should be tracked. Once you have the final list of files to be commited, summarize changes and suggest nice commit message which summarizes the changes made. Check for user approval for the commit message and if approved, make a commit
 ```
+9. 
+```
+Use https://github.com/modelcontextprotocol/servers/tree/main/src/everything as a reference and create similar mcp server with stdio and streamable http transports for the conference. It should have three tools:
+1. List all submitter talks
+2. List talks subject to filters
+3. Search talk by title
+```
 
 ### Javascript
 0.
@@ -220,3 +227,30 @@ Find all the files listing dependencies, including docker files. For each depend
 ```
 You are tasked with creating nice commits. Before commiting check if there are any untracked files and check with the user if any of them should be tracked. Once you have the final list of files to be commited, summarize changes and suggest nice commit message which summarizes the changes made. Check for user approval for the commit message and if approved, make a commit
 ```
+9. 
+```
+Use https://github.com/modelcontextprotocol/servers/tree/main/src/everything as a reference and create similar mcp server with stdio and streamable http transports for the conference. It should have three tools:
+1. List all submitter talks
+2. List talks subject to filters
+3. Search talk by title
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
