@@ -139,7 +139,7 @@ Add filters to the page with talks
 ```
 4.
 ```
-Add monitoring for the backend api using grafana and prometheus
+Add monitoring for the backend api using grafana and prometheus along with some basic dashboards
 ```
 5. 
 MCPs - grafana and/or postgresql
@@ -181,7 +181,7 @@ Add filters to the page with talks
 ```
 4.
 ```
-Add monitoring for the backend api using grafana and prometheus
+Add monitoring for the backend api using grafana and prometheus along with some basic dashboards
 ```
 5. 
 MCPs - grafana and/or postgres
