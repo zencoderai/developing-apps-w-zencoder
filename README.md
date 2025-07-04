@@ -123,7 +123,7 @@ I want to build a website for a conference, it should have several pages, namely
 ```
 2. 
 ```
-/e2e-test go to http://localhost:3000 and check that all buttons in the header work and redirect to the correct pages
+/e2e-test go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
 ```
 3.
 ```
@@ -182,7 +182,7 @@ I want to build a website for a conference, it should have several pages, namely
 ```
 2. 
 ```
-/e2e-test go to http://localhost:3000 and check that all buttons in the header work and redirect to the correct pages
+/e2e-test go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
 ```
 3.
 ```
