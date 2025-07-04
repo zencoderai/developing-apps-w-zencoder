@@ -10,14 +10,6 @@ Some scaffolding and prerequisites for the talk on developing apps using Zencode
 Some of the MCP servers require extra data like paths or API tokens. Those you need to update in relevant section of the mcp config
 
 ## MCP Servers
-### Time
-```json
-{
-    "command": "npx",
-    "args": ["-y", "time-mcp"]
-}
- ```
-
 ### Git
 ```json
 {
@@ -125,7 +117,7 @@ MCPs - git, slack
 Checkout branch app
 ```
 1. 
-MCPs - docker (optional), time
+MCP - docker (optional)
 ```
 I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in fastapi. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
 ```
@@ -184,7 +176,7 @@ MCPs - git, slack
 Checkout branch app
 ```
 1. 
-MCPs - docker (optional), time
+MCP - docker (optional)
 ```
 I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in nodejs. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
 ```
