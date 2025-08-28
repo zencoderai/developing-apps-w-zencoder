@@ -6,52 +6,61 @@ Some scaffolding and prerequisites for the talk on developing apps using Zencode
 * Install [Zencoder](https://zencoder.ai)
 * Install [docker](https://docs.docker.com/engine/install/)
 * Install [uvx](https://docs.astral.sh/uv/getting-started/installation/) and [npx](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* Sign up for [Supabase](https://supabase.com) account or spin up [locally](https://supabase.com/docs/guides/local-development)
 
 Some of the MCP servers require extra data like paths or API tokens. Those you need to update in relevant section of the mcp config
 
 ## MCP Servers
-### Git
-```json
-{
-    "command": "uvx",
-    "args": ["mcp-server-git", "--repository", "/ABSOLUTE/PATH/TO/GIT/REPO"]
-}
-```
-
-### Docker (optional)
-```json
-{
-    "command": "uvx",
-    "args": [
-        "mcp-server-docker"
-    ]
-}
-```
-
 ### Grafana
-Download and unpack from https://github.com/grafana/mcp-grafana/releases, provide absolute path to mcp-grafana binary. Update GRAFANA_URL and GRAFANA_API_KEY as needed.
 ```json
 {
-    "command": "/PATH/TO/mcp-grafana",
-    "args": [],
+    "command": "docker",
+    "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GRAFANA_API_KEY",
+        "-e",
+        "GRAFANA_URL",
+        "mcp/grafana"
+    ],
     "env": {
-        "GRAFANA_URL": "http://localhost:3001",
-        "GRAFANA_API_KEY": "SERVICE_ACCOUNT_TOKEN"
+        "GRAFANA_API_KEY": "API_KEY",
+        "GRAFANA_URL": "URL"
     }
 }
 ```
 
-### Postgres
+### Supabase (or postgres for locally running supabase)
+For cloud deployment of Supabase:
+```json
+{
+    "command": "npx",
+    "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--read-only",
+        "--project-ref=<project-ref>"
+    ],
+    "env": {
+        "SUPABASE_ACCESS_TOKEN": "ACCESS_TOKEN"
+    }
+}
+```
+
+For local deployment of supabase (just Postgres MCP):
 ```json
 {
     "command": "npx",
     "args": [
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "postgresql://USERNAME:PASSWORD@localhost:5432/DB_NAME"
+        "CONNECTION_STRING"
     ]
 }
 ```
+You can get connection string through `supabase status` or `npx supabase status`
 
 ### Slack
 `.env.slack` file contains bot token and team id. Create a new app at https://api.slack.com/apps and add it to your workspace. Then create a bot user and get its token. Also find team ID by going to `Manage Workspace -> About -> Team ID`.
@@ -70,7 +79,7 @@ Local MCP config:
         "--rm",
         "--env-file",
         "/PATH/TO/.env.slack",
-        "mcp/slack"
+        "zencoderai/slack-mcp"
     ]
 }
 ```
@@ -111,7 +120,7 @@ MCP config:
 Possible intermediate steps are ommited due to undeterministic nature of LLM responses.
 ### Python + Javascript
 0. 
-Create repository on github, clone locally, open in IDE
+Create repository on github, clone locally, open in IDE  
 1. 
 Agent - `Code`  
 Model (optional) - `Sonnet 4 Parallel Thinking`
@@ -184,7 +193,7 @@ Use https://github.com/modelcontextprotocol/servers/tree/main/src/everything as 
 
 ### Javascript
 0. 
-Create repository on github, clone locally, open in IDE
+Create repository on github, clone locally, open in IDE  
 1. 
 Agent - `Code`  
 Model (optional) - `Sonnet 4 Parallel Thinking`
