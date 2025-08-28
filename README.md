@@ -110,31 +110,43 @@ MCP config:
 ## Prompts/steps
 Possible intermediate steps are ommited due to undeterministic nature of LLM responses.
 ### Python + Javascript
-0.
+0. 
 Create repository on github, clone locally, open in IDE
-MCPs - git, slack
-```
-Checkout branch app
-```
 1. 
-MCP - docker (optional)
+Agent - `Code`  
+Model (optional) - `Sonnet 4 Parallel Thinking`
 ```
-I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in fastapi. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
+I want to build a website for the conference. Frontend part needs to be written in react, backend - in fastapi. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling. Use supabase for auth.
+Add the following pages:
+Intro/Home Page: Main landing page for the conference
+Submitted Talks Page: Shows all submitted talks with vote counts, visible to everyone but only authenticated users can vote
+Login Page: Authentication for users
+User Profile Page: List of user's submitted talks with statuses; personal information and settings
+Talk Submission Page: Form for submitting new talk proposals, only available for authenticated users, fill in available user data automatically
+Approved Talk Directory: List of all approved talks with link to speaker page with bio
+FAQ/Help Page: Common questions and answers; support information
+Contact Page: General inquiries, support requests, or media contacts
+Each page should follow the same aesthetic and style without exception.
+All DB queries should be done through backend
 ```
 2. 
+Agent - `E2E test`  
 ```
-/e2e-test go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
+Go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
 ```
 3.
+Agent - `Code`  
 ```
 Add filters to the page with talks
 ```
 4.
+Agent - `Code`  
 ```
 Add monitoring for the backend api using grafana and prometheus along with some basic dashboards
 ```
 5. 
-MCPs - grafana and/or postgresql
+Agent - `Code`  
+MCPs - grafana and/or postgres
 ```
 How many requests does the app have in grafana?
 ```
@@ -142,16 +154,18 @@ How many requests does the app have in grafana?
 Get all talks from postgres where speaker is {NAME}
 ```
 6.
+Agent - `Code`  
 ```
 Let's now prepare deployment yaml that will allow us to deploy this app to kubernetes
 ```
 7. 
+Agent - `Code`  
 MCPs - github
 ```
 Commit and push changes, create a pull request
 ```
 8. 
-Custom agents
+Custom agents:
 * Version updater
 ```
 Find all the files listing dependencies, including docker files. For each dependency check online the very latest version even if it includes major version update, I want the most up to date version for each package, library and image. Output the list of planned updates before actually updating and ask for user's approval. Also make sure to have backups for any relevant resources, like databases. Once approved, update as planned, restore data from backups, and then verify everything works by making sure docker images build and run and existing tests are passing
@@ -169,30 +183,42 @@ Use https://github.com/modelcontextprotocol/servers/tree/main/src/everything as 
 ```
 
 ### Javascript
-0.
+0. 
 Create repository on github, clone locally, open in IDE
-MCPs - git, slack
-```
-Checkout branch app
-```
 1. 
-MCP - docker (optional)
+Agent - `Code`  
+Model (optional) - `Sonnet 4 Parallel Thinking`
 ```
-I want to build a website for a conference, it should have several pages, namely: 1. Intro page about conference, 2. Page for people to submit their talks, 3. Page with submitted talks. Frontend part needs to be written in react, backend - in nodejs. I want to store the submissions in postgresql database. Create dockerfile for frontend and for backend, and docker compose file. Use tailwind for styling
+I want to build a website for the conference. Let's use NextJS for frontend/backend, and supabase for auth. Use tailwind for styling.
+Add the following pages:
+Intro/Home Page: Main landing page for the conference
+Submitted Talks Page: Shows all submitted talks with vote counts, visible to everyone but only authenticated users can vote
+Login Page: Authentication for users
+User Profile Page: List of user's submitted talks with statuses; personal information and settings
+Talk Submission Page: Form for submitting new talk proposals, only available for authenticated users, fill in available user data automatically
+Approved Talk Directory: List of all approved talks with link to speaker page with bio
+FAQ/Help Page: Common questions and answers; support information
+Contact Page: General inquiries, support requests, or media contacts
+Each page should follow the same aesthetic and style without exception.
+All DB queries should be done through backend
 ```
 2. 
+Agent - `E2E test`  
 ```
-/e2e-test go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
+Go to http://localhost:3000, check that clicking on talk submission button works. Try filling the form with some dummy data and submit talk. Then verify that the talk is shown on the submitted talks page
 ```
 3.
+Agent - `Code`  
 ```
 Add filters to the page with talks
 ```
 4.
+Agent - `Code`  
 ```
 Add monitoring for the backend api using grafana and prometheus along with some basic dashboards
 ```
 5. 
+Agent - `Code`  
 MCPs - grafana and/or postgres
 ```
 How many requests does the app have in grafana?
@@ -201,16 +227,18 @@ How many requests does the app have in grafana?
 Get all talks from postgres where speaker is {NAME}
 ```
 6.
+Agent - `Code`  
 ```
 Let's now prepare deployment yaml that will allow us to deploy this app to kubernetes
 ```
 7. 
+Agent - `Code`  
 MCPs - github
 ```
 Commit and push changes, create a pull request
 ```
 8. 
-Custom agents
+Custom agents:
 * Version updater
 ```
 Find all the files listing dependencies, including docker files. For each dependency check online the very latest version even if it includes major version update, I want the most up to date version for each package, library and image. Output the list of planned updates before actually updating and ask for user's approval. Also make sure to have backups for any relevant resources, like databases. Once approved, update as planned, restore data from backups, and then verify everything works by making sure docker images build and run and existing tests are passing
